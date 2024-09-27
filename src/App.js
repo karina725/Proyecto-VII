@@ -7,7 +7,7 @@ import EstacionamientoList from './componentes/Estacionamientos/EstacionamientoL
 import ReservaList from './componentes/Reservas/ReservaList';
 import LiberacionList from './componentes/Liberaciones/LiberacionList';
 import LogList from './componentes/Logs/LogList';
-import LoginForm from "./componentes/LoginForm";  // Eliminadas las llaves vacías
+import LoginForm from "./componentes/LoginForm"; 
 
 function App() {
   return (
