@@ -1,4 +1,3 @@
-
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
@@ -8,22 +7,20 @@ import EstacionamientoList from './componentes/Estacionamientos/EstacionamientoL
 import ReservaList from './componentes/Reservas/ReservaList';
 import LiberacionList from './componentes/Liberaciones/LiberacionList';
 import LogList from './componentes/Logs/LogList';
-import LoginForm, {} from "./componentes/LoginForm"
+import LoginForm from "./componentes/LoginForm";  // Eliminadas las llaves vacías
 
 function App() {
   return (
     <div className="App">
-      <LoginForm></LoginForm>
-       <div className="App">
-        <div className="container">
-          <h1>Sistema de Gestión de Estacionamientos</h1>
-          <UsuarioList />
-          <EmpleadoList />
-          <EstacionamientoList />
-          <ReservaList />
-          <LiberacionList />
-          <LogList />
-        </div>
+      <LoginForm />
+      <div className="container">
+        <h1>Sistema de Gestión de Estacionamientos</h1>
+        <UsuarioList />
+        <EmpleadoList />
+        <EstacionamientoList />
+        <ReservaList />
+        <LiberacionList />
+        <LogList />
       </div>
     </div>
   );
