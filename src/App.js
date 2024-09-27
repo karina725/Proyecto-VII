@@ -2,12 +2,12 @@ import logo from './logo.svg';
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
-import UsuarioList from './components/Usuarios/UsuarioList';
-import EmpleadoList from './components/Empleados/EmpleadoList';
-import EstacionamientoList from './components/Estacionamientos/EstacionamientoList';
-import ReservaList from './components/Reservas/ReservaList';
-import LiberacionList from './components/Liberaciones/LiberacionList';
-import LogList from './components/Logs/LogList';
+import UsuarioList from './componentes/Usuarios/UsuarioList';
+import EmpleadoList from './componentes/Empleados/EmpleadoList';
+import EstacionamientoList from './componentes/Estacionamientos/EstacionamientoList';
+import ReservaList from './componentes/Reservas/ReservaList';
+import LiberacionList from './componentes/Liberaciones/LiberacionList';
+import LogList from './componentes/Logs/LogList';
 import LoginForm, {} from "./componentes/LoginForm"
 
 function App() {
