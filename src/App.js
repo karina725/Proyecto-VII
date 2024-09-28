@@ -16,6 +16,12 @@ function App() {
       <LoginForm />
       <div className="container">
         <h1>Sistema de Gestión de Estacionamientos</h1>
+        <UsuarioList />
+        <EmpleadoList />
+        <EstacionamientoList />
+        <ReservaList />
+        <LiberacionList />
+        <LogList />
       </div>
     </div>
   );
