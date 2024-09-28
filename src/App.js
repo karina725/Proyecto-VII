@@ -12,20 +12,11 @@ import LogList from './componentes/Logs/LogList';
 
 function App() {
   return (
-    <div className="App">
-      <LoginForm />
-      <div className="container">
-        <h1>Sistema de Gestión de Estacionamientos</h1>
-        <UsuarioList />
-        <EmpleadoList />
-        <EstacionamientoList />
-        <ReservaList />
-        <LiberacionList />
-        <LogList />
-      </div>
+    <div className="login-container">
+        <h2>Iniciar Sesión</h2>
+        {/* Quita el resto del formulario por ahora */}
     </div>
-  );
-}
+);
 
 export default App;
 
