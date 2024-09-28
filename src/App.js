@@ -2,6 +2,8 @@ import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 
+import LoginForm from './componentes/LoginForm';
+
 
 
 function App() {
