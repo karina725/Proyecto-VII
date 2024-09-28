@@ -15,6 +15,8 @@ function App() {
   return (
     <Router>
       <div className="App">
+      <header className= "App-header"></header>
+      <h1>hola mundo </h1>
         <LoginForm />
         <div className="container">
           <h1>Sistema de Gestión de Estacionamientos</h1>
