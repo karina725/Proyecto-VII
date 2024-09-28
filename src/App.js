@@ -1,5 +1,4 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 
@@ -13,24 +12,20 @@ import LogList from './componentes/Logs/LogList';
 
 function App() {
   return (
-    <Router>
-      <div className="App">
-        <LoginForm />
-        <div className="container">
-          <h1>Sistema de Gestión de Estacionamientos</h1>
-          {/* Definimos las rutas */}
-          <Routes>
-            <Route path="/usuarios" element={<UsuarioList />} />
-            <Route path="/empleados" element={<EmpleadoList />} />
-            <Route path="/estacionamientos" element={<EstacionamientoList />} />
-            <Route path="/reservas" element={<ReservaList />} />
-            <Route path="/liberaciones" element={<LiberacionList />} />
-            <Route path="/logs" element={<LogList />} />
-          </Routes>
-        </div>
+    <div className="App">
+      <LoginForm />
+      <div className="container">
+        <h1>Sistema de Gestión de Estacionamientos</h1>
+        <UsuarioList />
+        <EmpleadoList />
+        <EstacionamientoList />
+        <ReservaList />
+        <LiberacionList />
+        <LogList />
       </div>
-    </Router>
+    </div>
   );
 }
 
 export default App;
+
