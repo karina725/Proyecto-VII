@@ -6,10 +6,6 @@ $dbname = 'dbs13342332';
 $username = 'root';
 $password = '';
 
-//$host = 'db5016421573.hosting-data.io';
-//$dbname = 'dbs13342332';
-//$username = 'dbu3737837';
-//$password = 'proyecto7Udg*karina';
 
 
 try {
