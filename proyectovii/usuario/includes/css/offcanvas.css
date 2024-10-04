@@ -1,0 +1,253 @@
+/*
+ * Style tweaks
+ * --------------------------------------------------
+ */
+html,
+body {
+  overflow-x: hidden; /* Prevent scroll on narrow devices */
+}
+body {
+  padding-top: 0;
+}
+footer {
+  padding: 30px 0;
+}
+
+.page-header {
+    padding-bottom: 0px!important;
+    margin: 0 2.5% 0!important;
+    border-bottom: 1px solid #eee!important;
+}
+
+.color_g {
+	background-color:#f4f4f4;
+}
+
+/*
+ * Footer
+ * --------------------------------------------------
+ */
+
+footer{
+	height: 300px;
+	max-height: 300px;
+	background: #e5e5e5;
+    /*background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJod…EiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+ */  
+    background: -moz-linear-gradient(top, #e5e5e5 0%, #fefefe 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#e5e5e5), color-stop(100%,#fefefe));
+    background: -webkit-linear-gradient(top, #e5e5e5 0%,#fefefe 100%);
+    background: -o-linear-gradient(top, #e5e5e5 0%,#fefefe 100%);
+    background: -ms-linear-gradient(top, #e5e5e5 0%,#fefefe 100%);
+    background: linear-gradient(to bottom, #e5e5e5 0%,#fefefe 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e5e5e5', endColorstr='#fefefe',GradientType=0 );
+    -webkit-box-shadow: 0px 10px 10px -10px #CCC;
+    box-shadow: 0px 10px 10px -10px #CCC;
+	padding: 20px;
+	color: #666;
+	margin: 20px 0;
+}
+
+.texto_f {
+	line-height: 1.4em;
+    font-family: "Open Sans",'lucida grande',tahoma,verdana,arial,sans-serif;
+    color: #444444;
+    direction: ltr;
+    font-size: 11px;
+    margin: 0 auto;
+    padding: 0;
+    text-align: left;
+    unicode-bidi: embed;
+}
+.nav_f{
+		margin-top: -70px;
+	}
+
+.logo{
+	background-image: url(../../images/escudo_footer.png);
+	background-repeat: no-repeat;
+	padding: 80px 0 0 16px;
+	margin: 10px;
+}
+
+@media screen and (max-width: 991px){
+	.nav_f{
+		margin-top: 20px;
+	}
+}
+
+
+
+/*
+ * Off Canvas
+ * --------------------------------------------------
+ */
+@media screen and (max-width: 767px) {
+  .row-offcanvas {
+    position: relative;
+    -webkit-transition: all .25s ease-out;
+         -o-transition: all .25s ease-out;
+            transition: all .25s ease-out;
+  }
+
+  .row-offcanvas-right {
+    right: 0;
+  }
+
+  .row-offcanvas-left {
+    left: 0;
+  }
+
+  .row-offcanvas-right
+  .sidebar-offcanvas {
+    right: -50%; /* 6 columns */
+  }
+
+  .row-offcanvas-left
+  .sidebar-offcanvas {
+    left: -50%; /* 6 columns */
+  }
+
+  .row-offcanvas-right.active {
+    right: 50%; /* 6 columns */
+  }
+
+  .row-offcanvas-left.active {
+    left: 50%; /* 6 columns */
+  }
+
+  .sidebar-offcanvas {
+    position: absolute;
+    top: 0;
+    width: 50%; /* 6 columns */
+  }
+		.hide {
+		display: none;
+	}
+}
+
+@media screen and (max-width: 742px){
+	.ocultar{
+		display: none;
+	}
+}
+
+/*IFRAME*/
+/*#ocultar{
+  position: absolute;
+  right: 270px;top: 650px;
+  z-index:9999;
+  display: none;
+  float: right;
+  position: fixed;
+  z-index: 200;
+  margin-left:65%;
+  margin-top: -30%;
+  width:720px;
+  height:400px;
+}*/
+.ocultar_frame{display:none; float: right; position: fixed; z-index: 200; margin-left:45%; margin-top: -30%; width:720px; height:400px;}
+
+
+/*
+ TABS
+*/
+.tabset > input[type="radio"] {
+  position: absolute;
+  left: -200vw;
+}
+
+.tabset .tab-panel {
+  display: none;
+}
+
+.tabset > input:first-child:checked ~ .tab-panels > .tab-panel:first-child,
+.tabset > input:nth-child(3):checked ~ .tab-panels > .tab-panel:nth-child(2),
+.tabset > input:nth-child(5):checked ~ .tab-panels > .tab-panel:nth-child(3),
+.tabset > input:nth-child(7):checked ~ .tab-panels > .tab-panel:nth-child(4),
+.tabset > input:nth-child(9):checked ~ .tab-panels > .tab-panel:nth-child(5),
+.tabset > input:nth-child(11):checked ~ .tab-panels > .tab-panel:nth-child(6) {
+  display: block;
+}
+
+/*
+ Styling
+*/
+
+.tabset > label {
+  position: relative;
+  display: inline-block;
+  padding: 15px 15px 25px;
+  border: 1px solid transparent;
+  border-bottom: 0;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.tabset > label::after {
+  content: "";
+  position: absolute;
+  left: 15px;
+  bottom: 10px;
+  width: 22px;
+  height: 4px;
+  background: #8d8d8d;
+}
+
+.tabset > label:hover,
+.tabset > input:focus + label {
+  color: #06c;
+}
+
+.tabset > label:hover::after,
+.tabset > input:focus + label::after,
+.tabset > input:checked + label::after {
+  background: #06c;
+}
+
+.tabset > input:checked + label {
+  border-color: #ccc;
+  border-bottom: 1px solid #fff;
+  margin-bottom: -1px;
+}
+
+.tab-panel {
+  padding: 30px 0;
+  border-top: 1px solid #ccc;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+.tabset {
+  /*max-width: 65em;*/
+}
+
+/*<!-- Special version of Bootstrap that only affects content wrapped in .bootstrap-iso -->
+<!-- Inline CSS based on choices in "Settings" tab -->*/
+.bootstrap-iso .formden_header h2, .bootstrap-iso .formden_header p, .bootstrap-iso form{font-family: Arial, Helvetica, sans-serif; color: black;}.bootstrap-iso form button, .bootstrap-iso form button:hover{color: white !important;} 
+
+.campo_oblicatorio{color: #ff0000 !important;} 
+
+
+
+/*<!-- HTML Form (wrapped in a .bootstrap-iso div) -->*/
+.required-field::after {
+    content: "*";
+    color: red;
+}
+
+
+/* arrastrar y soltar archivos */
+.drop-area {
+    border: 2px dashed #ccc;
+    padding: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.drop-area.dragover {
+    background-color: #f7f7f7;
+}
