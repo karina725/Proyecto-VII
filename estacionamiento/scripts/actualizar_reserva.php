@@ -1,18 +1,16 @@
 <?php
-include('./config/db.php');
+include('../config/db.php');
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $id = $_POST['id'];
+    $id_reserva = $_POST['id_reserva'];  
     $usuario_id = $_POST['usuario_id'];
     $espacio_id = $_POST['espacio_id'];
-    $fecha_reserva = $_POST['fecha_reserva'];
 
-    $query = "UPDATE reservas SET usuario_id = :usuario_id, espacio_id = :espacio_id, fecha_reserva = :fecha_reserva WHERE id = :id";
+    $query = "UPDATE reservas SET usuario_id = :usuario_id, espacio_id = :espacio_id WHERE id_reserva = :id_reserva"; 
     $stmt = $pdo->prepare($query);
-    $stmt->bindParam(':id', $id);
+    $stmt->bindParam(':id_reserva', $id_reserva);  
     $stmt->bindParam(':usuario_id', $usuario_id);
     $stmt->bindParam(':espacio_id', $espacio_id);
-    $stmt->bindParam(':fecha_reserva', $fecha_reserva);
 
     if ($stmt->execute()) {
         header("Location: ../public/reservas.php?message=Reserva actualizada exitosamente");
@@ -20,3 +18,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo "Error al actualizar la reserva.";
     }
 }
+?>

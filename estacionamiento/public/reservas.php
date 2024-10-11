@@ -45,13 +45,13 @@ include('./includes/auth.php'); // Proteger la página
         echo "<tbody>";
         while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
             echo "<tr>";
-            echo "<td>{$row['id']}</td>";
+            echo "<td>{$row['id_estacionamiento']}</td>";
             echo "<td>{$row['usuario_id']}</td>";
             echo "<td>{$row['espacio_id']}</td>";
             echo "<td>{$row['fecha_reserva']}</td>";
             echo "<td>
-                        <a href='../scripts/eliminar_reserva.php?id={$row['id']}' class='btn btn-danger' onclick='return confirm(\"¿Estás seguro de que deseas eliminar esta reserva?\");'>Eliminar</a>
-                        <a href='actualizar_reserva.php?id={$row['id']}' class='btn btn-warning'>Actualizar</a>
+                        <a href='./scripts/eliminar_reserva.php?id={$row['id_estacionamiento']}' class='btn btn-danger' onclick='return confirm(\"¿Estás seguro de que deseas eliminar esta reserva?\");'>Eliminar</a>
+                        <a href='./actualizar_reserva.php?id={$row['id_estacionamiento']}' class='btn btn-warning'>Actualizar</a>
                     </td>";
             echo "</tr>";
         }

@@ -1,30 +1,21 @@
 <?php
-// scripts/agregar_reserva.php
-include('../config/db.php');
-session_start();
+// scripts/agregar_estacionamiento.php
+include('../config/db.php'); // Incluir configuración de base de datos
+session_start(); // Iniciar la sesión
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $id_empleado = $_SESSION['user_id']; 
-    $id_estacionamiento = $_POST['numero_espacio']; 
-    $fecha_reserva = $_POST['fecha_reserva']; 
-    $horario_inicio = $_POST['horario_inicio']; 
-    $estado = "Reservado"; 
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $numero_espacio = $_POST['numero_espacio'];
+    $estado = $_POST['estado'];
 
-    $query = "INSERT INTO reservas (id_empleado, id_estacionamiento, fecha_reserva, horario_inicio, estado, fecha_creacion) 
-              VALUES (:id_empleado, :id_estacionamiento, :fecha_reserva, :horario_inicio, :estado, NOW())";
-
+    // Consulta para agregar el espacio de estacionamiento
+    $query = "INSERT INTO estacionamientos (numero_espacio, estado) VALUES (:numero_espacio, :estado)";
     $stmt = $pdo->prepare($query);
-    $stmt->bindParam(':id_empleado', $id_empleado);
-    $stmt->bindParam(':id_estacionamiento', $id_estacionamiento);
-    $stmt->bindParam(':fecha_reserva', $fecha_reserva);
-    $stmt->bindParam(':horario_inicio', $horario_inicio);
+    $stmt->bindParam(':numero_espacio', $numero_espacio);
     $stmt->bindParam(':estado', $estado);
+    $stmt->execute();
 
-    if ($stmt->execute()) {
-        header("Location: ../public/estacionamientos.php?message=Reserva agregada exitosamente.");
-        exit();
-    } else {
-        echo "Error al agregar la reserva.";
-    }
+    // Redireccionar de vuelta a la página de estacionamientos
+    header("Location: ./public/estacionamientos.php");
+    exit();
 }
 ?>

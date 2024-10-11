@@ -1,16 +1,26 @@
 <?php
 // public/actualizar_estacionamiento.php
 include('../config/db.php');
-include('./includes/auth.php'); // Proteger la página
+// include('../includes/auth.php'); // Proteger la página
 
-if (isset($_GET['id'])) {
-    $id = $_GET['id'];
-    $query = "SELECT * FROM estacionamientos WHERE id = :id";
+if (isset($_GET['id_estacionamiento'])) {
+    $id_estacionamiento = $_GET['id_estacionamiento'];
+    $query = "SELECT * FROM estacionamientos WHERE id_estacionamiento = :id_estacionamiento";
     $stmt = $pdo->prepare($query);
-    $stmt->bindParam(':id', $id);
+    $stmt->bindParam(':id_estacionamiento', $id_estacionamiento);
     $stmt->execute();
     $espacio = $stmt->fetch(PDO::FETCH_ASSOC);
+
+    // Verificar si se encontró un resultado
+    if (!$espacio) {
+        echo "No se encontró el espacio de estacionamiento.";
+        exit; // Detener la ejecución si no hay resultados
+    }
+} else {
+    echo "ID de estacionamiento no proporcionado.";
+    exit; // Detener la ejecución si no se pasa un ID
 }
+
 ?>
 
 <!DOCTYPE html>
@@ -27,7 +37,7 @@ if (isset($_GET['id'])) {
     <div class="container">
         <h2>Actualizar Espacio de Estacionamiento</h2>
         <form action="../scripts/actualizar_estacionamiento.php" method="POST">
-            <input type="hidden" name="id" value="<?php echo $espacio['id']; ?>">
+            <input type="hidden" name="id_estacionamiento" value="<?php echo $espacio['id_estacionamiento']; ?>">
             <div class="form-group">
                 <label for="numero_espacio">Número del Espacio:</label>
                 <input type="text" name="numero_espacio" class="form-control" id="numero_espacio" value="<?php echo $espacio['numero_espacio']; ?>" required>

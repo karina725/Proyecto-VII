@@ -1,11 +1,11 @@
 <?php
-include('./config/db.php');
+include('../config/db.php');
 
-if (isset($_GET['id'])) {
-    $id = $_GET['id'];
+if (isset($_GET['espacio_id'])) {
+    $espacio_id = $_GET['espacio_id'];
     $query = "SELECT * FROM reservas WHERE id = :id";
     $stmt = $pdo->prepare($query);
-    $stmt->bindParam(':id', $id);
+    $stmt->bindParam(':espacio_id', $espacio_id);
     $stmt->execute();
     $reserva = $stmt->fetch(PDO::FETCH_ASSOC);
 }
@@ -24,7 +24,7 @@ if (isset($_GET['id'])) {
     <div class="container">
         <h2>Actualizar Reserva</h2>
         <form action="../scripts/actualizar_reserva.php" method="POST">
-            <input type="hidden" name="id" value="<?php echo $reserva['id']; ?>">
+            <input type="hidden" name="espacio_id" value="<?php echo $reserva['espacio_id']; ?>">
             <div class="form-group">
                 <label for="usuario_id">ID de Usuario:</label>
                 <input type="number" name="usuario_id" class="form-control" id="usuario_id" value="<?php echo $reserva['usuario_id']; ?>" required>
