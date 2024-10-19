@@ -1,8 +1,11 @@
 <?php
+
 // includes/header.php
 include('../config/config.php');
 include('navbar.php');
+
 ?>
+
 <!DOCTYPE html>
 <html lang="es">
 

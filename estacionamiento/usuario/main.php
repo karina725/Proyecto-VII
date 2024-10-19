@@ -1,10 +1,11 @@
 <?php
+
 $page = '';
 if (isset($_GET['q']))
 	$page = limpiar_cadena($_GET['q'], $mysqli);
 
 switch ($user_privilegios_id) {
-	case 1: // Administrador
+	case 1: // ADMINISTRADOR
 		include_once('includes/php/main_100.php'); 
 		break;
 

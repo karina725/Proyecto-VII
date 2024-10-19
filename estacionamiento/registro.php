@@ -1,18 +1,23 @@
 <?php
+
 session_start();
+
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
+
 error_reporting(E_ALL);
 if (isset($_SESSION['user_session']) && !empty($_SESSION['user_session'])) {
    header("Location: usuario/");
    exit;
 }
+
 include_once('usuario/includes/php/conexion.php');
 include_once('usuario/includes/php/diccionario.php');
 include_once('usuario/includes/php/limpiar.php');
 
 // Verificar si se ha enviado el formulario
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+
    // Capturar datos del formulario
    $nombre_usuario = limpiar_cadena_html($_POST['nombre_usuario']);
    $email = limpiar_cadena_html($_POST['email']);
@@ -54,26 +59,33 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $db_con->rollBack();
             echo "<div class='alert alert-danger'>Error al crear el empleado.</div>";
          }
+
       } else {
          // Deshacer la transacción en caso de error
          $db_con->rollBack();
          echo "<div class='alert alert-danger'>Error al crear el usuario.</div>";
       }
+
    } catch (PDOException $e) {
       $db_con->rollBack();
       echo "<div class='alert alert-danger'>Error en la operación: " . $e->getMessage() . "</div>";
    }
+
 }
+
 ?>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html lang="es-MX">
 
 <head>
+
    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
    <title>
       <?php echo $nombre_sistema_completo; ?>
    </title>
+
    <!-- Estilos -->
    <link href="style.css" rel="stylesheet" type="text/css" media="screen">
    <link rel="stylesheet" href="usuario/includes/css/font-awesome.min.css">
@@ -88,9 +100,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
    <!-- Scripts adicionales -->
    <script src="usuario/includes/js/42b8149369.js" crossorigin="anonymous"></script>
    <script src="validation.min.js"></script>
-   <script src="script.js"></script>
 
    <style>
+
       /* Estilos personalizados */
       body {
          background-color: #f8f9fa;
@@ -169,17 +181,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             width: 90%;
          }
       }
+
    </style>
+
 </head>
 
 <body>
+
    <div class="content">
 
       <div class="container">
          <div class="card">
-            <div class="header-container">
-               <h3 class="card-title">Bienvenido al Sistema de Administrador de Estacionamientos</h3>
-            </div>
+
             <div class="card-body">
                <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
                   <div class="carousel-inner">
@@ -187,34 +200,36 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                         <img src="usuario/images/banner.png" class="d-block w-100">
                      </div>
                   </div>
-                  <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                     <span class="sr-only">
-                        <<< /span>
-                  </a>
-                  <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-                     <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                     <span class="sr-only">>></span>
-                  </a>
                </div>
             </div>
 
-            <h2 class="mb-4">Registro de Usuario y Empleado</h2>
-            <form method="POST">
-               <!-- Sección de Usuario -->
+            <h2 class="mb-4 text-center">Registro de Usuario y Empleado</h2>
+
+            <div class="card-body">
+               <p class="card-text text-center">
+                  <b>Por favor, introduce los datos del nuevo usuario.</b>
+               </p>
+            </div>
+
+            <form class="form-signin" method="post" id="register-form">
+
                <h4>Información del Usuario</h4>
+
                <div class="form-group">
                   <label for="nombre_usuario">Nombre del Usuario</label>
                   <input type="text" name="nombre_usuario" class="form-control" id="nombre_usuario" required>
                </div>
+
                <div class="form-group">
                   <label for="email">Correo Electrónico</label>
                   <input type="email" name="email" class="form-control" id="email" required>
                </div>
+
                <div class="form-group">
                   <label for="contraseña">Contraseña</label>
                   <input type="password" name="contraseña" class="form-control" id="contraseña" required>
                </div>
+
                <div class="form-group">
                   <label for="id_rol">Rol del Usuario</label>
                   <select name="id_rol" id="id_rol" class="form-control">
@@ -224,29 +239,34 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                   </select>
                </div>
 
-               <hr>
-
-               <!-- Sección de Empleado -->
                <h4>Información del Empleado</h4>
+
                <div class="form-group">
                   <label for="numero_empleado">Número de Empleado</label>
                   <input type="text" name="numero_empleado" class="form-control" id="numero_empleado" required>
                </div>
+
                <div class="form-group">
                   <label for="nombre_completo">Nombre Completo del Empleado</label>
                   <input type="text" name="nombre_completo" class="form-control" id="nombre_completo" required>
                </div>
 
                <button type="submit" class="btn btn-primary">Registrar Usuario y Empleado</button>
+
             </form>
+
+            <div class="alert alert-info">
+               <a href="index.php">Regresar al inicio</a>
+            </div>
 
          </div>
 
-      </div><!-- END <div class="container"> -->
+      </div>
 
+   </div>
 
-   </div><!-- END <div class="content"> -->
    <script type="text/javascript" src="script.js"></script>
+
 </body>
 
 </html>

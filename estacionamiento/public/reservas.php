@@ -1,7 +1,7 @@
 <?php
 // public/reservas.php
 include('../config/db.php');
-include('./includes/auth.php'); // Proteger la página
+//include('./includes/auth.php'); // Proteger la página
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -18,21 +18,22 @@ include('./includes/auth.php'); // Proteger la página
         <h2>Gestión de Reservas de Estacionamiento</h2>
 
         <!-- Formulario para agregar una nueva reserva -->
-        <form action="../scripts/agregar_reserva.php" method="POST">
-            <div class="form-group">
-                <label for="usuario_id">ID de Usuario:</label>
-                <input type="number" name="usuario_id" class="form-control" id="usuario_id" required>
-            </div>
-            <div class="form-group">
-                <label for="espacio_id">ID del Espacio de Estacionamiento:</label>
-                <input type="number" name="espacio_id" class="form-control" id="espacio_id" required>
-            </div>
-            <div class="form-group">
-                <label for="fecha_reserva">Fecha de la Reserva:</label>
-                <input type="date" name="fecha_reserva" class="form-control" id="fecha_reserva" required>
-            </div>
-            <button type="submit" class="btn btn-primary">Reservar Espacio</button>
+        <form action="agregar_reserva.php" method="POST">
+            <label for="numero_espacio">Número de Espacio:</label>
+            <input type="text" id="numero_espacio" name="numero_espacio" required><br>
+
+            <label for="hora_inicio">Hora de Inicio:</label>
+            <input type="time" id="hora_inicio" name="hora_inicio" required><br>
+
+            <label for="hora_fin">Hora de Fin:</label>
+            <input type="time" id="hora_fin" name="hora_fin" required><br>
+
+            <label for="descripcion">Descripción:</label>
+            <textarea id="descripcion" name="descripcion" required></textarea><br>
+
+            <button type="submit">Agregar Reserva</button>
         </form>
+
 
         <!-- Tabla de reservas existentes -->
         <h3>Lista de Reservas Existentes</h3>
@@ -45,12 +46,12 @@ include('./includes/auth.php'); // Proteger la página
         echo "<tbody>";
         while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
             echo "<tr>";
-            echo "<td>{$row['id_estacionamiento']}</td>";
-            echo "<td>{$row['usuario_id']}</td>";
-            echo "<td>{$row['espacio_id']}</td>";
-            echo "<td>{$row['fecha_reserva']}</td>";
+            echo "<td>{$row['numero_espacio']}</td>";
+            echo "<td>{$row['hora_inicio']}</td>";
+            echo "<td>{$row['hora_fin']}</td>";
+            echo "<td>{$row['descripcion']}</td>";
             echo "<td>
-                        <a href='./scripts/eliminar_reserva.php?id={$row['id_estacionamiento']}' class='btn btn-danger' onclick='return confirm(\"¿Estás seguro de que deseas eliminar esta reserva?\");'>Eliminar</a>
+                        <a href='./scripts/eliminar_reserva.php?id={$row['reserva']}' class='btn btn-danger' onclick='return confirm(\"¿Estás seguro de que deseas eliminar esta reserva?\");'>Eliminar</a>
                         <a href='./actualizar_reserva.php?id={$row['id_estacionamiento']}' class='btn btn-warning'>Actualizar</a>
                     </td>";
             echo "</tr>";

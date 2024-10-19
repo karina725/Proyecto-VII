@@ -2,6 +2,8 @@
 // public/estacionamientos.
 include('../config/db.php'); 
 $dic_inicio = "Mensaje de inicio";
+
+
 //$imagen_banner = '../usuario/images/banner.png';
 
 session_start(); // Proteger la página
@@ -47,18 +49,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 
-<body>
 
-    <!-- Contenido de la página de Estacionamientos -->
     <div class="container">
+        
         <h2>Gestión de Espacios de Estacionamiento</h2>
 
-        <!-- Botón para redirigir al index.php -->
         <div class="mb-3">
-            <a href="../usuario/index.php" class="btn btn-secondary">Regresar al Inicio</a>
+            <a href="../usuario/inicio.php" class="btn btn-secondary">Regresar al Inicio</a>
+            <a href="./crear_evento.php" class="btn btn-secondary">Reserva de Evento</a>
         </div>
 
-        <!-- Formulario para agregar un nuevo espacio de estacionamiento -->
         <form action="estacionamientos.php" method="POST">
             <div class="form-group">
                 <label for="numero_espacio">Número del Espacio:</label>
@@ -119,7 +119,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             echo "<td>{$row['seguro']}</td>";
             echo "<td>
                     <a href='../scripts/eliminar_estacionamiento.php?id_estacionamiento={$row['id_estacionamiento']}' class='btn btn-danger' onclick='return confirm(\"¿Estás seguro de que deseas eliminar este espacio?\");'>Eliminar</a>
-                    <a href='./actualizar_estacionamiento.php?id_estacionamiento={$row['id_estacionamiento']}' class='btn btn-warning'>Actualizar</a>
+                    <a href='../actualizar_estacionamiento.php?id_estacionamiento={$row['id_estacionamiento']}' class='btn btn-warning'>Actualizar</a>
                 </td>";
             echo "</tr>";
         }

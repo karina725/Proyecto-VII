@@ -1,12 +1,15 @@
 <?php
 session_start();
+
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
+
 error_reporting(E_ALL);
 if (isset($_SESSION['user_session']) && !empty($_SESSION['user_session'])) {
    header("Location: usuario/");
    exit;
 }
+
 include_once('usuario/includes/php/conexion.php');
 include_once('usuario/includes/php/diccionario.php');
 include_once('usuario/includes/php/limpiar.php');
@@ -18,14 +21,18 @@ if (array_key_exists('conv', $_POST)) {
 $texto_convocatoria = '';
 
 ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+
+<!DOCTYPE html>
+<html lang="es-MX">
 
 <head>
+
    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
    <title>
       <?php echo $nombre_sistema_completo; ?>
    </title>
+
    <!-- Estilos -->
    <link href="style.css" rel="stylesheet" type="text/css" media="screen">
    <link rel="stylesheet" href="usuario/includes/css/font-awesome.min.css">
@@ -40,9 +47,9 @@ $texto_convocatoria = '';
    <!-- Scripts adicionales -->
    <script src="usuario/includes/js/42b8149369.js" crossorigin="anonymous"></script>
    <script src="validation.min.js"></script>
-   <script src="script.js"></script>
-
+   
    <style>
+
       /* Estilos personalizados */
       body {
          background-color: #f8f9fa;
@@ -124,7 +131,6 @@ $texto_convocatoria = '';
          font-size: 16px;
       }
 
-
       @media (max-width: 576px) {
          .card {
             width: 100%;
@@ -141,17 +147,23 @@ $texto_convocatoria = '';
             width: 90%;
          }
       }
+
    </style>
+
 </head>
 
 <body>
+
    <div class="content">
 
       <div class="container">
+
          <div class="card">
+
             <div class="header-container">
-               <h3 class="card-title">Bienvenido al Sistema de Administrador de Estacionamientos</h3>
+               <h3 class="card-title">Bienvenido al Sistema Administrador de Estacionamientos</h3>
             </div>
+
             <div class="card-body">
                <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
                   <div class="carousel-inner">
@@ -159,63 +171,64 @@ $texto_convocatoria = '';
                         <img src="usuario/images/banner.png" class="d-block w-100">
                      </div>
                   </div>
-                  <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                     <span class="sr-only">
-                        <<< /span>
-                  </a>
-                  <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-                     <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                     <span class="sr-only">>></span>
-                  </a>
                </div>
             </div>
+
             <div class="card-body">
                <p class="card-text text-center">
                   <b>Por favor, introduce tus credenciales para acceder al sistema.</b>
                </p>
             </div>
+
             <div class="form-container">
+
                <section id="ingreso_alumnos" class="tab-panel">
+
                   <div class="signin-form">
                      <div class="card card-container">
+
                         <form class="form-signin" method="post" id="login-form">
+
                            <h2 class="form-signin-heading login_title" style="text-align: center">Ingreso </h2>
                            <hr />
-                           <div id="error">
-                              <!-- error will be shown here ! -->
-                           </div>
+
+                           <div id="error"></div>
+
                            <div class="form-group">
                               <input type="text" class="form-control" placeholder="Usuario" title="Usuario" name="user_email" id="user_email" required />
                            </div>
+
                            <div class="form-group">
                               <input type="password" class="form-control" placeholder="<?php echo $dic_password; ?>" title="Contraseña de ingreso" name="password" id="password" required />
                            </div>
+
                            <hr />
+
                            <div class="form-group">
                               <button type="submit" class="btn btn-primary form-signin" name="btn-login" id="btn-login">
                                  <span class="glyphicon glyphicon-log-in"></span> &nbsp; Ingresar
                               </button>
                            </div>
+
                         </form>
 
                         <div class="alert alert-info">
                            ¿No tienes una cuenta? <a href="registro.php">Regístrate aquí</a>
                         </div>
-                     </div><!-- END  <div class="card card-container"> -->
-                  </div><!-- END <div class="signin-form">  -->
-                  <hr>
-               </section>
-               <!-- END <section id="ingreso_alumnos" class="tab-panel">  -->
 
+                     </div>
+                  </div>
+
+               </section>
 
             </div>
 
-         </div><!-- END <div class="container"> -->
+         </div>
 
+      </div>
 
-      </div><!-- END <div class="content"> -->
       <script type="text/javascript" src="script.js"></script>
+
 </body>
 
 </html>

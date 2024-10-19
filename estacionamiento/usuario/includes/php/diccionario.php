@@ -6,6 +6,12 @@ $sistema_siglas = 'GEstacionamientos';
 
 $nombre_sistema_completo = $sistema_nombre . ' (' . $sistema_siglas . ')';
 
+##### ///// AGREGADOS NUEVOS
+$dic_reservas_evento = 'Reservas Evento';
+$dic_estacionamientos = 'Estacionamientos';
+$dic_pensiones = 'Pensiones';
+$dic_lavados = 'Lavados';
+
 ##### ///// A
 $arbolado = 'Arbolado';
 $dic_academicos = 'Docentes';
@@ -491,6 +497,7 @@ $dic_ubicacion = 'Ubicación';
 $dic_unidad = 'Unidad';
 $dic_unidades = 'Unidades';
 $dic_unidad_contenido = 'unidades y contenido';
+$dic_estacionamientos ='Estacionamientos';
 
 
 ##### ///// V

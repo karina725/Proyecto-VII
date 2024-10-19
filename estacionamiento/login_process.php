@@ -1,5 +1,7 @@
 <?php
+
 session_start();
+
 require_once 'usuario/includes/php/limpiar.php';
 require_once 'usuario/includes/php/conexion.php';
 
@@ -28,10 +30,13 @@ if (isset($_POST['btn-login'])) {
             } else {
                 echo "Usuario y/o Contraseña incorrecto(s)."; // Contraseña incorrecta
             }
+            
         } else {
             echo "Usuario no encontrado o inactivo."; // Usuario no encontrado
         }
+
     } catch (PDOException $e) {
         echo $e->getMessage();
     }
+
 }

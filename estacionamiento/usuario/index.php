@@ -1,5 +1,6 @@
 <?php
-session_start(); // Iniciar sesión al comienzo del archivo
+
+session_start();
 
 // Incluir archivos necesarios
 include_once("includes/php/conexion.php");
@@ -7,13 +8,13 @@ include_once("includes/php/limpiar.php");
 include_once("includes/php/login.php");
 include_once("includes/php/diccionario.php");
 
-
 ?>
 
 <!DOCTYPE html>
 <html lang="es-MX">
 
 <head>
+
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title><?php echo $nombre_sistema_completo; ?></title>
@@ -97,10 +98,13 @@ include_once("includes/php/diccionario.php");
 			right: 0;
 			z-index: 999;
 		}
+		
 	</style>
+
 </head>
 
 <body>
+
 	<?php include_once("includes/php/header.php"); ?>
 
 	<div class="container">
@@ -108,9 +112,8 @@ include_once("includes/php/diccionario.php");
 		include_once('includes/php/mensajes_forms.php');
 		include_once("main.php");
 		?>
-	</div><!-- END div class="container" -->
+	</div>
 
-	<?php include_once("includes/php/footer.php"); ?>
 </body>
 
 </html>
