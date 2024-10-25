@@ -57,7 +57,7 @@ $pensiones = $stmt->fetchAll(PDO::FETCH_ASSOC);
 				<td><?php echo imprimir_cadena($pension['estado'], $mysqli); ?></td>
 
 				<td>
-					<a href="?q=pensiones/editar/&id_pension=<?php echo $pension['id_pension']; ?>" class="btn btn-warning btn-sm"><?php echo $dic_editar; ?></a>
+				<a href="?q=pensiones/editar/&id_pension=<?php echo $pension['id_pension']; ?>" class="btn btn-warning btn-sm"><?php echo $dic_editar_icon; ?></a>
 					<a href="?q=pensiones/eliminar/&id_pension=<?php echo $pension['id_pension']; ?>" class="btn btn-danger btn-sm" onclick="return confirm('¿Estás seguro de que deseas eliminar esta pension?');"><?php echo $dic_eliminar_icon; ?></a>
 				</td>
 

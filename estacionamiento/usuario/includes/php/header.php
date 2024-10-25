@@ -28,8 +28,6 @@ $imagen_banner = 'banner.png';
 
 			<li><a href="?q=lavados/"><?php echo $dic_lavados;?></a></li>
 
-			<li><a href="?q=reservas_evento/"><?php echo $dic_reservas_evento;?></a></li>
-
 			<li><a href="../public/crear_evento.php/">Reserva para Eventos</a></li>
 
 			<li><a href="#" onclick="logout()">Salir</a></li>

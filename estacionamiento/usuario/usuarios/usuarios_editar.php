@@ -25,11 +25,11 @@ if (isset($_GET['id_usuario']) && isset($_SESSION['user_id'])) {
 	<ol class="breadcrumb">
 		<li class="breadcrumb-item"><a href="?q=inicio"><?php echo  $dic_inicio; ?></a></li>
 		<li class="breadcrumb-item"><a href="?q=usuarios/"><?php echo $dic_usuarios; ?></a></li>
-		<li class="breadcrumb-item active"><?php echo $dic_editar; ?></li>
+		<li class="breadcrumb-item active"><?php echo $dic_editar_icon; ?></li>
 	</ol>
 </div>
 <div class="page-header">
-	<h2 class="text-center"><?php echo $dic_editar . ' ' . $dic_usuario; ?></h2>
+	<h2 class="text-center"><?php echo $dic_editar_icon. ' ' . $dic_usuario; ?></h2>
 </div>
 <hr>
 <?php if (isset($usuario) && isset($empleado)): ?>

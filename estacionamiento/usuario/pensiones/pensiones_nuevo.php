@@ -15,80 +15,73 @@ $usuarios = $stmt->fetchAll(PDO::FETCH_ASSOC);
 </div>
 
 <div class="page-header">
-	<h2 class="text-center"><?php echo $nueva . ' ' . $dic_pensiones; ?></h2>
+	<h2 class="text-center"><?php echo 'Nuevo Registro'; ?></h2>
 </div>
 
-<hr>
+<div class="form-container">
+<section class="tab-panel">
+<div class="signin-form">
+<div class="card card-container">
 
-	<ul class="nav nav-tabs" id="myTab" role="tablist">
+<form class="form-signin" method="POST" action="pensiones/pensiones_agregar.php">
 
-		<li class="nav-item">
-			<button class="nav-link active" id="user-tab" data-bs-toggle="tab" data-bs-target="#user" type="button" role="tab" aria-controls="user" aria-selected="true">Información de Usuario y Estacionamiento</button>
-		</li>
-		<li class="nav-item">
-			<button class="nav-link" id="employee-tab" data-bs-toggle="tab" data-bs-target="#employee" type="button" role="tab" aria-controls="employee" aria-selected="false">Información de Pension</button>
-		</li>
+	<div class="tab-content" id="myTabContent">
 
-	</ul>
+		<div class="tab-pane fade show active p-3" id="user" role="tabpanel" aria-labelledby="user-tab">
 
-	<form method="POST" action="pensiones/pensiones_agregar.php">
-
-		<div class="tab-content" id="myTabContent">
-
-			<div class="tab-pane fade show active p-3" id="user" role="tabpanel" aria-labelledby="user-tab">
-
-				<div class="mb-3">
-					<label for="usuario" class="form-label">Usuario</label>
-					<select name="usuario" class="form-control" id="usuario">
-					<?php foreach ($usuarios as $usuario): ?>
-					<option value="<?php echo $usuario['id_usuario']; ?>"><?php echo $usuario['nombre_usuario']; ?></option>
-					<?php endforeach; ?>
-					</select>
-				</div>
-
-				<div class="mb-3">
-					<label for="estacionamiento" class="form-label">Numero estacionamiento</label>
-					<input type="text" name="estacionamiento" class="form-control" id="estacionamiento" value="" required>
-				</div>
-
-				<div class="mb-3">
-					<label for="descripcion" class="form-label">Descripcion</label>
-					<input type="text" name="descripcion" class="form-control" id="descripcion" value="" required>
-				</div>
-
-				<div class="mb-3">
-					<label for="placa" class="form-label">Placa</label>
-					<input type="text" name="placa" class="form-control" id="placa" value="" required>
-				</div>
-
-				<div class="mb-3">
-					<label for="modelo" class="form-label">Modelo</label>
-					<input type="text" name="modelo" class="form-control" id="modelo" value="" required>
-				</div>
-
-				<div class="mb-3">
-					<label for="seguro" class="form-label">Seguro</label>
-					<input type="text" name="seguro" class="form-control" id="seguro" value="" required>
-				</div>
-
+			<div class="mb-3">
+				<label for="usuario" class="form-label">Usuario</label>
+				<select class="form-control" name="usuario" id="usuario">
+				<?php foreach ($usuarios as $usuario): ?>
+				<option value="<?php echo $usuario['id_usuario']; ?>"><?php echo $usuario['nombre_usuario']; ?></option>
+				<?php endforeach; ?>
+				</select>
 			</div>
 
-			<div class="tab-pane fade p-3" id="employee" role="tabpanel" aria-labelledby="employee-tab">
-
-				<div class="mb-3">
-					<label for="inicio" class="form-label">Fecha Inicio</label>
-					<input type="date" name="inicio" class="form-control" id="inicio" value="" required>
-				</div>
-
-				<div class="mb-3">
-					<label for="fin" class="form-label">Fecha Fin</label>
-					<input type="date" name="fin" class="form-control" id="fin" value="" required>
-				</div>
-
+			<div class="mb-3">
+				<label for="estacionamiento" class="form-label">Numero estacionamiento</label>
+				<input type="text" class="form-control" name="estacionamiento" id="estacionamiento" required>
 			</div>
-			
+
+			<div class="mb-3">
+				<label for="descripcion" class="form-label">Descripcion</label>
+				<input type="text" class="form-control" name="descripcion" id="descripcion" required>
+			</div>
+
+			<div class="mb-3">
+				<label for="placa" class="form-label">Placa</label>
+				<input type="text" class="form-control" name="placa" id="placa" required>
+			</div>
+
+			<div class="mb-3">
+				<label for="modelo" class="form-label">Modelo</label>
+				<input type="text" class="form-control" name="modelo" id="modelo" required>
+			</div>
+
+			<div class="mb-3">
+				<label for="seguro" class="form-label">Seguro</label>
+				<input type="text" class="form-control" name="seguro" id="seguro" required>
+			</div>
+
+			<div class="mb-3">
+				<label for="inicio" class="form-label">Fecha Inicio</label>
+				<input type="date" class="form-control" name="inicio" id="inicio" required>
+			</div>
+
+			<div class="mb-3">
+				<label for="fin" class="form-label">Fecha Fin</label>
+				<input type="date" class="form-control" name="fin" id="fin" required>
+			</div>
+
+			<button type="submit" class="btn btn-primary">Guardar</button>
+
 		</div>
+		
+	</div>
 
-		<button type="submit" class="btn btn-primary">Registrar Pension</button>
-	
-	</form>
+</form>
+
+</div>
+</section>
+</div>
+</div>

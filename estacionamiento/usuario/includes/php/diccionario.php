@@ -12,6 +12,9 @@ $dic_estacionamientos = 'Estacionamientos';
 $dic_pensiones = 'Pensiones';
 $dic_lavados = 'Lavados';
 
+$dic_editar_icon = '<i class="fa fa-pen"></i>';
+$dic_eliminar_icon = '<i class="fa fa-trash"></i>';
+
 ##### ///// A
 $arbolado = 'Arbolado';
 $dic_academicos = 'Docentes';
@@ -167,9 +170,8 @@ $dic_vacante_dirigida = 'Vacante dirigida';
 
 
 ##### ///// E
-$dic_editar = 'Editar';
+$editar = 'Editar';
 $dic_eliminar = 'Eliminar';
-$dic_eliminar_icon = '<i class="fa fa-trash"></i>';
 $dic_eliminado = 'eliminado correctamente';
 $dic_error = 'Ocurrio un error inesperado al momento de realizar la operación';
 $dic_encuesta = 'Encuesta';

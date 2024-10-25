@@ -50,7 +50,7 @@ $usuarios = $stmt->fetchAll(PDO::FETCH_ASSOC);
 				<td><?php echo imprimir_cadena($usuario['nombre_completo'], $mysqli); ?></td>
 
 				<td>
-					<a href="?q=usuarios/editar/&id_usuario=<?php echo $usuario['id_usuario']; ?>" class="btn btn-warning btn-sm"><?php echo $dic_editar; ?></a>
+					<a href="?q=usuarios/editar/&id_usuario=<?php echo $usuario['id_usuario']; ?>" class="btn btn-warning btn-sm"><?php echo $dic_editar_icon; ?></a>
 					<a href="?q=usuarios/eliminar/&id_usuario=<?php echo $usuario['id_usuario']; ?>" class="btn btn-danger btn-sm" onclick="return confirm('¿Estás seguro de que deseas eliminar este usuario?');"><?php echo $dic_eliminar_icon; ?></a>
 				</td>
 

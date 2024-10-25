@@ -13,7 +13,7 @@ switch ($page) {
         break;
 
     case "estacionamiestos/":
-        include_once('../public/estacionamientos.php');
+        include_once('../public/estacionaminetos.php');
         break;
 
     case "eliminar_estacionamiento":  
@@ -30,6 +30,22 @@ switch ($page) {
 
     
     //Estacionamiento
+    case "estacionamientos/":
+        include_once('includes/php/tablesorter.php');
+        include_once('estacionamientos/estacionamientos.php');
+        break;
+
+    case "estacionamientos/nueva/":
+        include_once('estacionamientos/estacionamientos_nuevo.php');
+        break;
+        
+    case "estacionamientos/editar/":
+        include_once('estacionamientos/estacionamientos_editar.php');
+        break;
+        
+    case "estacionamientos/eliminar/":
+        include_once('estacionamientos/estacionamientos_eliminar.php');
+        break;
 
 
     //Pensiones
@@ -47,11 +63,30 @@ switch ($page) {
         break;
         
     case "pensiones/eliminar/":
-        include_once('pensiones/eliminar/pension_eliminar.php');
+        include_once('pensiones/pensiones_eliminar.php');
         break;
 
 
     //Lavados
+    
+    case "lavados/":
+        include_once('includes/php/tablesorter.php');
+        include_once('lavados/lavados.php');
+        break;
+
+    case "lavados/nueva/":
+        include_once('lavados/lavados_nuevo.php');
+        break;
+        
+    case "lavados/editar/":
+        include_once('lavados/lavados_editar.php');
+        break;
+        
+    case "lavados/eliminar/":
+        include_once('lavados/lavados_eliminar.php');
+        break;
+
+
 
     
     //Reserva Eventos

@@ -4,7 +4,6 @@ include('../config/db.php');
 $dic_inicio = "Mensaje de inicio";
 
 
-//$imagen_banner = '../usuario/images/banner.png';
 
 session_start(); // Proteger la página
 
@@ -55,8 +54,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <h2>Gestión de Espacios de Estacionamiento</h2>
 
         <div class="mb-3">
-            <a href="../usuario/inicio.php" class="btn btn-secondary">Regresar al Inicio</a>
-            <a href="./crear_evento.php" class="btn btn-secondary">Reserva de Evento</a>
+            <a href="../../" class="btn btn-secondary">Regresar al Inicio</a>
         </div>
 
         <form action="estacionamientos.php" method="POST">

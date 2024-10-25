@@ -20,43 +20,35 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $estado_estacionamiento = limpiar_cadena_html('OCUPADO');
     $estado_pension = limpiar_cadena_html('ACTIVO');
 
-    try {
+    // Insertar el nuevo registro
+    $stmt_estacionamiento = $db_con->prepare("INSERT INTO estacionamientos (numero_espacio, descripcion, placa, modelo, seguro, estado) VALUES (:numero_espacio, :descripcion, :placa, :modelo, :seguro, :estado_estacionamiento)");
+    $stmt_estacionamiento->bindParam(':numero_espacio', $estacionamiento);
+    $stmt_estacionamiento->bindParam(':descripcion', $descripcion);
+    $stmt_estacionamiento->bindParam(':placa', $placa);
+    $stmt_estacionamiento->bindParam(':modelo', $modelo);
+    $stmt_estacionamiento->bindParam(':seguro', $seguro);
+    $stmt_estacionamiento->bindParam(':estado_estacionamiento', $estado_estacionamiento);
+    $stmt_estacionamiento->execute();
 
-        // Insertar el nuevo estacionamiento
-        $stmt_estacionamiento = $db_con->prepare("INSERT INTO estacionamientos (numero_espacio, descripcion, placa, modelo, seguro, estado) VALUES (:numero_espacio, :descripcion, :placa, :modelo, :seguro, :estado_estacionamiento)");
-        $stmt_estacionamiento->bindParam(':numero_espacio', $estacionamiento);
-        $stmt_estacionamiento->bindParam(':descripcion', $descripcion);
-        $stmt_estacionamiento->bindParam(':placa', $placa);
-        $stmt_estacionamiento->bindParam(':modelo', $modelo);
-        $stmt_estacionamiento->bindParam(':seguro', $seguro);
-        $stmt_estacionamiento->bindParam(':estado_estacionamiento', $estado_estacionamiento);
-        $stmt_estacionamiento->execute();
+    // Obtener el ID del nuevo registro
+    $id_estacionamiento = $db_con->lastInsertId();
 
-        // Obtener el ID del nuevo estacionamiento
-        $id_estacionamiento = $db_con->lastInsertId();
+    // Insertar el nuevo registro en la tabla
+    $stmt_pension = $db_con->prepare("INSERT INTO pensiones (id_usuario, id_estacionamiento, fecha_reserva, fecha_fin, estado) VALUES (:id_usuario, :id_estacionamiento, :fecha_reserva, :fecha_fin, :estado_pension)");
+    $stmt_pension->bindParam(':id_usuario', $usuario);
+    $stmt_pension->bindParam(':id_estacionamiento', $id_estacionamiento);
+    $stmt_pension->bindParam(':fecha_reserva', $inicio);
+    $stmt_pension->bindParam(':fecha_fin', $fin);
+    $stmt_pension->bindParam(':estado_pension', $estado_pension);
+    $stmt_pension->execute();
 
-        // Insertar el nuevo empleado en la tabla empleados
-        $stmt_pension = $db_con->prepare("INSERT INTO pensiones (id_usuario, id_estacionamiento, fecha_reserva, fecha_fin, estado) VALUES (:id_usuario, :id_estacionamiento, :fecha_reserva, :fecha_fin, :estado_pension)");
-        $stmt_pension->bindParam(':id_usuario', $usuario);
-        $stmt_pension->bindParam(':id_estacionamiento', $id_estacionamiento);
-        $stmt_pension->bindParam(':fecha_reserva', $inicio);
-        $stmt_pension->bindParam(':fecha_fin', $fin);
-        $stmt_pension->bindParam(':estado_pension', $estado_pension);
-        $stmt_pension->execute();
+    // Redirigir después de agregar
+    header("Location: ../?q=pensiones/&mensaje=10");
+    exit();
 
-        // Redirigir después de agregar
-        header("Location: ?q=pensiones/&mensaje=10");
-        exit();
-
-    } catch (PDOException $e) {
-
-        echo "<div class='alert alert-danger'>Error al agregar pension: " . $e->getMessage() . "</div>";
-
-    }
-    
 } else {
 
-    header("Location: ?q=usuarios/&mensaje=2");
+    header("Location: ../?q=pensiones/&mensaje=2");
     exit();
 
 }
