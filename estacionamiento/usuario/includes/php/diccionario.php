@@ -5,7 +5,6 @@ $sistema_nombre = 'Gestión de estacionamientos';
 $sistema_siglas = 'GEstacionamientos';
 
 $nombre_sistema_completo = $sistema_nombre . ' (' . $sistema_siglas . ')';
-
 ##### ///// AGREGADOS NUEVOS
 $dic_reservas_evento = 'Reservas Evento';
 $dic_estacionamientos = 'Estacionamientos';
@@ -217,6 +216,7 @@ $dic_extension = 'Extensión';
 $dic_experiencia_laboral = 'Experiencia laboral';
 $dic_evidencias = 'Evidencias';
 $dic_examinar = 'Examinar';
+$dic_espacios = 'Espacios';
 #### //// FORM EXCEL
 $dic_excel = 'Excel';
 $dic_excel_descargar = 'Descargar Excel';
@@ -252,6 +252,7 @@ $guardar = 'Guardar';
 $dic_grupo = 'Grupo';
 $dic_grupos = 'Grupos';
 $dic_genero = 'Género';
+$dic_gestion_espacios = 'Gestión de espacios';
 
 ##### ///// H
 $dic_hora_registro = 'Hora de registro';
@@ -326,6 +327,8 @@ $dic_modalidad_apoyo = 'Modalidad de apoyo';
 ##### ///// N
 $nuevo = 'Nuevo';
 $nueva = 'Nueva';
+$dic_nueva = 'Nueva';
+
 $dic_numeralia = 'Numeralia';
 $dic_nivel_academico = 'Nivel';
 $dic_nombramiento = 'Nombramiento';
@@ -450,6 +453,9 @@ $dic_semestre_ultimo = 'Último ciclo';
 
 $dic_sector = 'Sector';
 $dic_sector_economico = 'Sector económico';
+$dic_seccion = 'Sección';
+$dic_secciones = 'Secciones';
+$dic_secciones_estacionamiento = 'Secciones del estacionamiento';
 
 ##### ///// T
 $dic_taller = 'Taller';
@@ -499,7 +505,6 @@ $dic_ubicacion = 'Ubicación';
 $dic_unidad = 'Unidad';
 $dic_unidades = 'Unidades';
 $dic_unidad_contenido = 'unidades y contenido';
-$dic_estacionamientos ='Estacionamientos';
 
 
 ##### ///// V
