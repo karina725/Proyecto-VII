@@ -7,7 +7,7 @@ if (isset($_GET['id_lavado'])) {
 	$id_lavado = limpiar_cadena_html($_GET['id_lavado']);
 	
 	$stmt_lavado = $db_con->prepare("
-    SELECT p.id_lavado, e.id_estacionamiento, u.id_usuario, p.fecha_lavado, p.hora_lavado, p.modelo_auto, p.especificaciones_lavado, p.tipo_lavado,
+    SELECT p.id_lavado, e.id_estacionamiento, u.id_usuario, p.fecha_lavado, p.hora_lavado, p.modelo_auto, p.especificaciones_lavado, p.tipo_lavado, p.costo,
 	u.nombre_usuario, u.email
 	FROM lavados p 
 	INNER JOIN estacionamientos e ON p.id_estacionamiento = e.id_estacionamiento
@@ -20,6 +20,12 @@ if (isset($_GET['id_lavado'])) {
 }
 
 ?>
+<style>
+	.page-header h2 {
+		text-align: center;
+		color: white;
+	}
+</style>
 <div class="bc-icons-2">
 	<ol class="breadcrumb">
 		<li class="breadcrumb-item"><a href="?q=inicio"><?php echo  $dic_inicio; ?></a></li>
@@ -81,6 +87,16 @@ if (isset($_GET['id_lavado'])) {
 				<input type="text" class="form-control-plaintext" readonly name="especificaciones_lavado" id="especificaciones_lavado" value="<?php echo htmlspecialchars($lavado['especificaciones_lavado']); ?>">
 			</div>
 
+			<div class="form-group">
+				<label for="tipo_servicio">Tipo de Servicio: </label>
+				<select name="tipo_servicio" id="tipo_servicio" class="form-control">
+					<option value="solo lavado exterior-100" <?php echo (isset($tipo_lavado['tipo_servicio']) && $tipo_lavado['tipo_servicio'] == 'solo lavado exterior-100') ? 'selected' : ''; ?>>Lavado Exterior - $100</option>
+					<option value="lavado y aspirado-150" <?php echo (isset($tipo_lavado['tipo_servicio']) && $tipo_lavado['tipo_servicio'] == 'lavado y aspirado-150') ? 'selected' : ''; ?>>Lavado y Aspirado - $150</option>
+					<option value="lavado, aspirado y pulido-200" <?php echo (isset($tipo_lavado['tipo_servicio']) && $tipo_lavado['tipo_servicio'] == 'lavado, aspirado y pulido-200') ? 'selected' : ''; ?>>Lavado, Aspirado y Pulido - $200</option>
+				</select>
+			</div>
+
+
 		</div>
 
 		<div class="tab-pane fade p-3" id="estacionamiento" role="tabpanel" aria-labelledby="estacionamiento-tab">
@@ -94,12 +110,13 @@ if (isset($_GET['id_lavado'])) {
 				<label for="hora_lavado" class="form-label">Hora del Lavado: </label>
 				<input time="text" class="form-control" name="hora_lavado" id="hora_lavado" value="<?php echo htmlspecialchars($lavado['hora_lavado']); ?>">
 			</div>
-
-			<div class="mb-3">
+			
+			<!--div class="mb-3">
 				<label for="tipo_lavado" class="form-label">Tipo de Lavado: </label>
 				<input type="text" class="form-control" name="tipo_lavado" id="tipo_lavado" value="<?php echo htmlspecialchars($lavado['tipo_lavado']); ?>">
-			</div>
-a
+			</div-->
+
+
 		</div>
 
 	</div>

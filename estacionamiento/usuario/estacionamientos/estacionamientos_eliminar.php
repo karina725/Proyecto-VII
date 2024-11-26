@@ -16,12 +16,9 @@ if (isset($_GET['id_estacionamiento'])) {
     $db_con->commit();
 
     // Redirigir después de la eliminacion
-    header("Location: ../?q=estacionamientos/&mensaje=20"); 
+    header("Location: ?q=estacionamientos/&mensaje=30");
     exit();
-
 } else {
-
-    header("Location: ../?q=estacionamientos/&mensaje=2");
+    header("Location: ?q=estacionamientos/&mensaje=2");
     exit();
-
 }

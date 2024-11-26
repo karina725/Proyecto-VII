@@ -21,6 +21,12 @@ if (isset($_GET['id_usuario']) && isset($_SESSION['user_id'])) {
 	$es_mi_usuario = ($user_id_actual == $id_usuario);
 }
 ?>
+<style>
+	.page-header h2 {
+		text-align: center;
+		color: white;
+	}
+</style>
 <div class="bc-icons-2">
 	<ol class="breadcrumb">
 		<li class="breadcrumb-item"><a href="?q=inicio"><?php echo  $dic_inicio; ?></a></li>

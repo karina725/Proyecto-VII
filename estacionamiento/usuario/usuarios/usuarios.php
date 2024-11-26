@@ -13,7 +13,12 @@ $stmt->execute();
 $usuarios = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 ?>
-
+<style>
+	.page-header h2 {
+		text-align: center;
+		color: white;
+	}
+</style>
 <div class="bc-icons-2">
 	<ol class="breadcrumb">
 		<li class="breadcrumb-item"><a href="?q=inicio"><?php echo $dic_inicio; ?></a></li>

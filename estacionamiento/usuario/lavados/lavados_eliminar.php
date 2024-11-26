@@ -17,12 +17,11 @@ if (isset($_GET['id_lavado'])) {
     $db_con->commit();
 
     // Redirigir después de la eliminacion
-    header("Location:../?q=lavados/&mensaje=30"); 
+    header("Location: ?q=lavados/&mensaje=30"); 
     exit();
 
 } else {
 
-    header("Location:../?q=lavados/&mensaje=2");
+    header("Location: ?q=lavados/&mensaje=2");
     exit();
-
 }

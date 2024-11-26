@@ -19,6 +19,11 @@ footer {
     border-bottom: 1px solid #eee!important;
 }
 
+.page-header h2 {
+  color: white;
+}
+
+
 .color_g {
 	background-color:#f4f4f4;
 }

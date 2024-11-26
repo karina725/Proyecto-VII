@@ -17,12 +17,9 @@ if (isset($_GET['id_pension'])) {
     $db_con->commit();
 
     // Redirigir después de la eliminacion
-    header("Location: ../?q=pensiones/&mensaje=30"); 
+    header("Location: ?q=pensiones/&mensaje=30"); 
     exit();
-
 } else {
-
-    header("Location: ../?q=pensiones/&mensaje=2");
-    exit();
-
+    header("Location: ?q=pensiones/&mensaje=2");
+    exit(); 
 }

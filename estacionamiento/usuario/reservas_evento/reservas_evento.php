@@ -1,61 +1,64 @@
 <?php
-
-$table_cols = 7;
+$table_cols = 9;
 
 $stmt = $db_con->prepare("
-    SELECT r.id_reserva, e.id_evento, u.id_usuario, r.fecha_reserva, r.hora_inicio, r.hora_fin, r.estado, r.fecha_creacion, 
-	e.nombre_evento, e.descripcion, e.fecha_evento, e.hora_inicio, e.hora_fin, e.estado, e.fecha_creacion,
-	u.nombre_usuario, u.email
-    FROM reservas_evento r 
-	INNER JOIN eventos e ON r.id_evento = e.id_evento
-	INNER JOIN usuarios u ON r.id_usuario = u.id_usuario
+    SELECT id_evento, nombre_evento, descripcion, fecha_evento, hora_inicio, hora_fin, costo_total
+    FROM eventos
 ");
 
 $stmt->execute();
-$reservas_evento = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
+$dic_reservas_evento = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
+
+<style>
+	.page-header h2 {
+		text-align: center;
+		color: white;
+	}
+</style>
 
 <div class="bc-icons-2">
 	<ol class="breadcrumb">
-		<li class="breadcrumb-item"><a href="?q=inicio"><?php echo $dic_inicio; ?></a></li>
-		<li class="breadcrumb-item active"><?php echo $dic_reservas_evento; ?> </li>
+		<li class="breadcrumb-item"><a href="?q=inicio"><?php echo $dic_inicio; ?></a></li>	
+        <li class="breadcrumb-item active"><?php echo $dic_reservas; ?></li>
 	</ol>
 </div>
 
 <div class="page-header">
-	<h2 class="text-center">Gestión de Reserva Evento</h2>
+	<h2 class="text-center">Gestión de Reserva de Eventos</h2>
 </div>
 
 <table class="table table-fixed table-bordered table-striped table-hover">
 
 	<thead class="thead-dark text-center">
 		<tr>
-			<th>Evento</th>
-			<th>Usuario</th>
-			<th>Reserva</th>
-			<th>Inicio</th>
-			<th>Fin</th>
-			<th>Estado</th>
+			<th>ID</th>
+			<th>Nombre del Evento</th>
+			<th>Descripción</th>
+			<th>Fecha del Evento</th>
+			<th>Hora Inicio</th>
+			<th>Hora Fin</th>
+			<th>Costo</th>
 			<th>Acciones</th>
 		</tr>
 	</thead>
 
 	<tbody>
 
-		<?php foreach ($reservas_evento as $reserva_evento): ?>
+		<?php foreach ($dic_reservas_evento as $dic_reservas_evento): ?>
 			<tr>
 
-				<td><?php echo imprimir_cadena($reserva_evento['nombre_evento'], $mysqli); ?></td>
-				<td><?php echo imprimir_cadena($reserva_evento['nombre_usuario'], $mysqli); ?></td>
-				<td><?php echo imprimir_cadena($reserva_evento['fecha_reserva'], $mysqli); ?></td>
-				<td><?php echo imprimir_cadena($reserva_evento['hora_inicio'], $mysqli); ?></td>
-				<td><?php echo imprimir_cadena($reserva_evento['hora_fin'], $mysqli); ?></td>
-				<td><?php echo imprimir_cadena($reserva_evento['estado'], $mysqli); ?></td>
+				<td><?php echo imprimir_cadena($dic_reservas_evento['id_evento'], $mysqli); ?></td>
+				<td><?php echo imprimir_cadena($dic_reservas_evento['nombre_evento'], $mysqli); ?></td>
+				<td><?php echo imprimir_cadena($dic_reservas_evento['descripcion'], $mysqli); ?></td>
+				<td><?php echo imprimir_cadena($dic_reservas_evento['fecha_evento'], $mysqli); ?></td>
+				<td><?php echo imprimir_cadena($dic_reservas_evento['hora_inicio'], $mysqli); ?></td>
+				<td><?php echo imprimir_cadena($dic_reservas_evento['hora_fin'], $mysqli); ?></td>
+				<td><?php echo imprimir_cadena($dic_reservas_evento['costo_total'], $mysqli); ?></td>
 
 				<td>
-					<a href="?q=reservas_evento/editar/&id_reserva=<?php echo $reserva_evento['id_reserva']; ?>" class="btn btn-warning btn-sm"><?php echo $dic_editar; ?></a>
-					<a href="?q=reservas_evento/eliminar/&id_reserva=<?php echo $reserva_evento['id_reserva']; ?>" class="btn btn-danger btn-sm" onclick="return confirm('¿Estás seguro de que deseas eliminar esta reserva?');"><?php echo $dic_eliminar_icon; ?></a>
+				<a href="?q=reservas_evento/editar/&id_evento=<?php echo $dic_reservas_evento['id_evento']; ?>" class="btn btn-warning btn-sm"><?php echo $dic_editar_icon; ?></a>
+					<a href="?q=reservas_evento/eliminar/&id_evento=<?php echo $dic_reservas_evento['id_evento']; ?>" class="btn btn-danger btn-sm" onclick="return confirm('¿Estás seguro de que deseas eliminar esta pension?');"><?php echo $dic_eliminar_icon; ?></a>
 				</td>
 
 			</tr>

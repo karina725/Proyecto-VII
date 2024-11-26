@@ -15,7 +15,26 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $hora_lavado = limpiar_cadena_html($_POST['hora_lavado']);
     $modelo_auto = limpiar_cadena_html($_POST['modelo_auto']);
     $especificaciones_lavado = limpiar_cadena_html($_POST['especificaciones_lavado']);
-    $tipo_lavado = limpiar_cadena_html($_POST['tipo_lavado']);
+    //$tipo_lavado = limpiar_cadena_html($_POST['tipo_lavado']);
+    $tipo_servicio = limpiar_cadena_html($_POST['tipo_servicio']);
+    $porciones = explode("-", $tipo_servicio);
+    $tipo_lavado = $porciones[0]; 
+    $costo = $porciones[1];
+
+    // Calcular el costo basado en el tipo de lavado
+    /*switch ($tipo_lavado) {
+        case 'solo lavado exterior':
+            $costo = 100;
+            break;
+        case 'lavado y aspirado':
+            $costo = 150;
+            break;
+        case 'lavado, aspirado y pulido':
+            $costo = 200;
+            break;
+        default:
+            $costo = 0; 
+    }*/
 
     try {
         // Insertar el nuevo estacionamiento
@@ -27,7 +46,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $id_estacionamiento = $db_con->lastInsertId();
 
         // Insertar el nuevo lavado en la tabla lavados
-        $stmt_lavados = $db_con->prepare("INSERT INTO lavados (id_usuario, id_estacionamiento, fecha_lavado, hora_lavado, modelo_auto, especificaciones_lavado, tipo_lavado) VALUES (:id_usuario, :id_estacionamiento, :fecha_lavado, :hora_lavado, :modelo_auto, :especificaciones_lavado, :tipo_lavado)");
+        $stmt_lavados = $db_con->prepare("INSERT INTO lavados (id_usuario, id_estacionamiento, fecha_lavado, hora_lavado, modelo_auto, especificaciones_lavado, tipo_lavado, costo) VALUES (:id_usuario, :id_estacionamiento, :fecha_lavado, :hora_lavado, :modelo_auto, :especificaciones_lavado, :tipo_lavado, :costo)");
         $stmt_lavados->bindParam(':id_usuario', $usuario);
         $stmt_lavados->bindParam(':id_estacionamiento', $id_estacionamiento);
         $stmt_lavados->bindParam(':fecha_lavado', $fecha_lavado);
@@ -35,6 +54,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $stmt_lavados->bindParam(':modelo_auto', $modelo_auto);
         $stmt_lavados->bindParam(':especificaciones_lavado', $especificaciones_lavado);
         $stmt_lavados->bindParam(':tipo_lavado', $tipo_lavado);
+        $stmt_lavados->bindParam(':costo', $costo);
         $stmt_lavados->execute();
 
         // Redirigir después de agregar
@@ -48,3 +68,4 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     header("Location: ../?q=lavados/&mensaje=2");
     exit();
 }
+?>

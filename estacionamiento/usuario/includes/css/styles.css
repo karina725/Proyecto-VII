@@ -42,8 +42,8 @@
 }
 
 body {
-	background-image: url('../../images/fondo.png');
-	background-repeat: repeat;
+	background-image: url('../../images/fondo8.jpg');
+	background-repeat: no-repeat;
 	background-position: center;
 }
 
@@ -54,7 +54,7 @@ body {
 
 /*
 .container {
-	background-image: url('../../images/fondo.png');
+	background-image: url('../../images/fondo2.png');
 	background-repeat: repeat;
 	background-position: center;
   }

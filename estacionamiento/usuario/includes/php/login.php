@@ -5,7 +5,7 @@ if (session_status() === PHP_SESSION_NONE) {
 
 // Verificar si la sesión del usuario está activa
 if (!isset($_SESSION['user_session'])) {
-    header("Location: ../index.php"); // Redirigir si no hay sesión activa
+    header("Location: ../index.php");// Redirigir si no hay sesión activa
     exit();
 }
 

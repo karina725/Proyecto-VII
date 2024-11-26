@@ -1934,7 +1934,7 @@ pre code {
 }
 
 .table-dark.table-striped tbody tr:nth-of-type(odd) {
-  background-color: rgba(255, 255, 255, 0.05);
+  background-color: rgba(175, 170, 170, 0.05);
 }
 
 .table-dark.table-hover tbody tr:hover {
@@ -10019,7 +10019,9 @@ button.bg-dark:focus {
 .text-center {
   text-align: center !important;
 }
-
+.text-center h2 {
+  color: #bee5eb;
+}
 @media (min-width: 576px) {
   .text-sm-left {
     text-align: left !important;

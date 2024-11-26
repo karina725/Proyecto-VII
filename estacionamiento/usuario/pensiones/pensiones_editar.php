@@ -7,7 +7,7 @@ if (isset($_GET['id_pension'])) {
 	$id_pension = limpiar_cadena_html($_GET['id_pension']);
 	
 	$stmt_pension = $db_con->prepare("
-	SELECT p.id_pension, e.id_estacionamiento, u.id_usuario, p.fecha_reserva, p.fecha_fin, p.estado, p.fecha_creacion, 
+	SELECT p.id_pension, e.id_estacionamiento, u.id_usuario, p.fecha_reserva, p.fecha_fin, p.estado, p.fecha_creacion,p.costo_total, 
 	e.numero_espacio, e.descripcion, e.placa, e.modelo, e.seguro, e.estado, e.fecha_creacion,
 	u.nombre_usuario, u.email
 	FROM pensiones p 
@@ -21,6 +21,12 @@ if (isset($_GET['id_pension'])) {
 }
 
 ?>
+<style>
+	.page-header h2 {
+		text-align: center;
+		color: white;
+	}
+</style>
 
 <div class="bc-icons-2">
 	<ol class="breadcrumb">

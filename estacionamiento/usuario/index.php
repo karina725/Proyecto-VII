@@ -1,5 +1,6 @@
 <?php
-session_start(); // Iniciar sesión al comienzo del archivo
+
+session_start();
 
 // Incluir archivos necesarios
 include_once("includes/php/conexion.php");
@@ -7,13 +8,13 @@ include_once("includes/php/limpiar.php");
 include_once("includes/php/login.php");
 include_once("includes/php/diccionario.php");
 
-
 ?>
 
 <!DOCTYPE html>
 <html lang="es-MX">
 
 <head>
+
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title><?php echo $nombre_sistema_completo; ?></title>
@@ -30,7 +31,7 @@ include_once("includes/php/diccionario.php");
 	<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
 	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 	<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
 	<!-- Librerías JavaScript -->
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
@@ -97,10 +98,13 @@ include_once("includes/php/diccionario.php");
 			right: 0;
 			z-index: 999;
 		}
+		
 	</style>
+
 </head>
 
 <body>
+
 	<?php include_once("includes/php/header.php"); ?>
 
 	<div class="container">
@@ -108,9 +112,8 @@ include_once("includes/php/diccionario.php");
 		include_once('includes/php/mensajes_forms.php');
 		include_once("main.php");
 		?>
-	</div><!-- END div class="container" -->
+	</div>
 
-	<?php include_once("includes/php/footer.php"); ?>
 </body>
 
 </html>

@@ -5,6 +5,12 @@ $stmt->execute();
 $usuarios = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 ?>
+<style>
+	.page-header h2 {
+		text-align: center;
+		color: white;
+	}
+</style>
 
 <div class="bc-icons-2">
 	<ol class="breadcrumb">
@@ -15,8 +21,14 @@ $usuarios = $stmt->fetchAll(PDO::FETCH_ASSOC);
 </div>
 
 <div class="page-header">
-	<h2 class="text-center"><?php echo $nueva . ' ' . $dic_lavados; ?></h2>
+	<h2 class="text-center"><?php echo 'Nuevo Registro'; ?></h2>
 </div>
+
+<div class="form-container">
+<section class="tab-panel">
+<div class="signin-form">
+<div class="card card-container">
+
 
 <hr>
 
@@ -61,10 +73,17 @@ $usuarios = $stmt->fetchAll(PDO::FETCH_ASSOC);
 					<input type="text" name="especificaciones_lavado" class="form-control" id="especificaciones_lavado" value="" required>
 				</div>
 
-				<div class="mb-3">
+				<!--div class="mb-3">
 					<label for="tipo_lavado" class="form-label">Tipo de Lavado</label>
 					<input type="text" name="tipo_lavado" class="form-control" id="tipo_lavado" value="" required>
-				</div>
+				</div-->
+
+				<label for="tipo_servicio">Tipo de Servicio:</label>
+				<select name="tipo_servicio" id="tipo_servicio" required>
+					<option value="solo lavado exterior-100">Lavado Exterior - $100</option>
+					<option value="lavado y aspirado-150">Lavado y Aspirado - $150</option>
+					<option value="lavado, aspirado y pulido-200">Lavado, Aspirado y Pulido - $200</option>
+				</select>
 
 			</div>
 
@@ -79,6 +98,10 @@ $usuarios = $stmt->fetchAll(PDO::FETCH_ASSOC);
 					<label for="hora_lavado" class="form-label">Holra de Lavado</label>
 					<input type="time" name="hora_lavado" class="form-control" id="hora_lavado" value="" required>
 				</div>
+				<div class="mb-3">
+				<label for="descripcion" class="form-label">descripción del Auto:</label>
+				<input type="text" class="form-control-plaintext" readonly name="especificaciones_lavado" id="especificaciones_lavado" value="<?php echo htmlspecialchars($lavado['especificaciones_lavado']); ?>">
+			</div>
 
 			</div>
 			

@@ -13,6 +13,10 @@ $usuarios = $stmt->fetchAll(PDO::FETCH_ASSOC);
 		<li class="breadcrumb-item active"><?php echo $nuevo; ?></li>
 	</ol>
 </div>
+<div class="form-container">
+<section class="tab-panel">
+<div class="signin-form">
+<div class="card card-container">
 
 <div class="page-header">
 	<h2 class="text-center"><?php echo $nueva . ' ' . $dic_estacionamientos; ?></h2>

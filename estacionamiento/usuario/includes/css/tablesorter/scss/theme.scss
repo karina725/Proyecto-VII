@@ -30,7 +30,7 @@ $overallBorder         : $borderAndBackground 1px solid;
 $headerTextColor       : #000;
 
 $bodyBackground        : #fff;
-$bodyTextColor         : #000;
+$bodyTextColor         : #fdfafa;
 
 $headerAsc             : darken(adjust-hue($headerBackground, 5), 10%); /* darken($headerBackground, 10%); */
 $headerDesc            : lighten(adjust-hue($headerBackground, -5), 10%); /* desaturate($headerAsc, 5%); */

@@ -1,9 +1,9 @@
 <?php
 
-$table_cols = 8;
+$table_cols = 9;
 
 $stmt = $db_con->prepare("
-    SELECT p.id_pension, e.id_estacionamiento, u.id_usuario, p.fecha_reserva, p.fecha_fin, p.estado, p.fecha_creacion, 
+    SELECT p.id_pension, e.id_estacionamiento, u.id_usuario, p.fecha_reserva, p.fecha_fin, p.estado, p.costo_total, p.fecha_creacion, 
 	e.numero_espacio, e.descripcion, e.placa, e.modelo, e.seguro, e.estado, e.fecha_creacion,
 	u.nombre_usuario, u.email
     FROM pensiones p 
@@ -15,7 +15,12 @@ $stmt->execute();
 $pensiones = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 ?>
-
+<style>
+	.page-header h2 {
+		text-align: center;
+		color: white;
+	}
+</style>
 
 <div class="bc-icons-2">
 	<ol class="breadcrumb">
@@ -39,6 +44,7 @@ $pensiones = $stmt->fetchAll(PDO::FETCH_ASSOC);
 			<th>Inicio Reserva</th>
 			<th>Fin Reserva</th>
 			<th>Estado</th>
+			<th>Costo</th>
 			<th>Acciones</th>
 		</tr>
 	</thead>
@@ -55,6 +61,7 @@ $pensiones = $stmt->fetchAll(PDO::FETCH_ASSOC);
 				<td><?php echo imprimir_cadena($pension['fecha_reserva'], $mysqli); ?></td>
 				<td><?php echo imprimir_cadena($pension['fecha_fin'], $mysqli); ?></td>
 				<td><?php echo imprimir_cadena($pension['estado'], $mysqli); ?></td>
+				<td><?php echo imprimir_cadena($pension['costo_total'], $mysqli); ?></td>
 
 				<td>
 				<a href="?q=pensiones/editar/&id_pension=<?php echo $pension['id_pension']; ?>" class="btn btn-warning btn-sm"><?php echo $dic_editar_icon; ?></a>
